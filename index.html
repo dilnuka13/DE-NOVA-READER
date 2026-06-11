@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DE Nova Reader — Download Portal</title>
     <link rel="icon" type="image/jpeg" href="logo.png">
-    <meta name="description" content="Download the latest version of DE Nova Reader — the AI-powered PDF workspace for Windows. Always up to date, straight from the official release portal.">
+    <meta name="description"
+        content="Download the latest version of DE Nova Reader — the AI-powered PDF workspace for Windows. Always up to date, straight from the official release portal.">
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,20 +18,20 @@
                 extend: {
                     colors: {
                         nova: {
-                            bg:          '#050505',
-                            panel:       'rgba(10, 10, 10, 0.75)',
-                            light:       '#111111',
-                            accent:      '#00ff41',
+                            bg: '#050505',
+                            panel: 'rgba(10, 10, 10, 0.75)',
+                            light: '#111111',
+                            accent: '#00ff41',
                             accentHover: '#00cc33',
-                            blue:        '#007aff',
-                            blueHover:   '#005ecb',
-                            gold:        '#f5c518',
+                            blue: '#007aff',
+                            blueHover: '#005ecb',
+                            gold: '#f5c518',
                         }
                     },
                     fontFamily: {
-                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                         title: ['Outfit', 'sans-serif'],
-                        mono:  ['Space Grotesk', 'monospace'],
+                        mono: ['Space Grotesk', 'monospace'],
                     }
                 }
             }
@@ -39,7 +41,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -48,35 +52,51 @@
 
     <style>
         :root {
-            --accent:       #00ff41;
-            --accent-glow:  rgba(0, 255, 65, 0.30);
-            --accent-dim:   rgba(0, 255, 65, 0.08);
-            --blue:         #007aff;
-            --blue-glow:    rgba(0, 122, 255, 0.25);
-            --border:       rgba(255, 255, 255, 0.055);
+            --accent: #00ff41;
+            --accent-glow: rgba(0, 255, 65, 0.30);
+            --accent-dim: rgba(0, 255, 65, 0.08);
+            --blue: #007aff;
+            --blue-glow: rgba(0, 122, 255, 0.25);
+            --border: rgba(255, 255, 255, 0.055);
             --border-hover: rgba(255, 255, 255, 0.11);
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             background-color: #050505;
             background-image:
-                radial-gradient(ellipse 80% 60% at 10% 10%, rgba(0,255,65,0.04) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 50% at 90% 90%, rgba(0,122,255,0.04) 0%, transparent 55%),
-                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(0,255,65,0.015) 0%, transparent 70%);
+                radial-gradient(ellipse 80% 60% at 10% 10%, rgba(0, 255, 65, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 90% 90%, rgba(0, 122, 255, 0.04) 0%, transparent 55%),
+                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(0, 255, 65, 0.015) 0%, transparent 70%);
             color: #e2e8f0;
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
         }
 
         /* ───────── Scrollbar ───────── */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
 
         /* ───────── Glassmorphism ───────── */
         .glass {
@@ -84,110 +104,188 @@
             backdrop-filter: blur(28px);
             -webkit-backdrop-filter: blur(28px);
             border: 1px solid var(--border);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.04);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.04);
         }
+
         .glass-blue {
-            background: rgba(0,30,80,0.18);
+            background: rgba(0, 30, 80, 0.18);
             backdrop-filter: blur(24px);
-            border: 1px solid rgba(0,122,255,0.15);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(0,122,255,0.07);
+            border: 1px solid rgba(0, 122, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(0, 122, 255, 0.07);
         }
 
         /* ───────── Glow effects ───────── */
-        .neon-text { text-shadow: 0 0 18px rgba(0,255,65,0.45); }
-        .neon-btn {
-            box-shadow: 0 0 22px rgba(0,255,65,0.18), inset 0 1px 0 rgba(255,255,255,0.1);
-            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+        .neon-text {
+            text-shadow: 0 0 18px rgba(0, 255, 65, 0.45);
         }
+
+        .neon-btn {
+            box-shadow: 0 0 22px rgba(0, 255, 65, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         .neon-btn:hover {
-            box-shadow: 0 0 40px rgba(0,255,65,0.48), inset 0 1px 0 rgba(255,255,255,0.12);
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.12);
             transform: translateY(-2px) scale(1.01);
         }
-        .neon-btn:active { transform: translateY(0) scale(0.98); }
-        .blue-btn {
-            box-shadow: 0 0 22px rgba(0,122,255,0.18), inset 0 1px 0 rgba(255,255,255,0.07);
-            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+
+        .neon-btn:active {
+            transform: translateY(0) scale(0.98);
         }
+
+        .blue-btn {
+            box-shadow: 0 0 22px rgba(0, 122, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         .blue-btn:hover {
-            box-shadow: 0 0 40px rgba(0,122,255,0.42), inset 0 1px 0 rgba(255,255,255,0.09);
+            box-shadow: 0 0 40px rgba(0, 122, 255, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.09);
             transform: translateY(-2px);
         }
 
         /* ───────── Particles canvas ───────── */
         #particles-canvas {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0; pointer-events: none; opacity: 0.65;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.65;
         }
 
         /* ───────── Animations ───────── */
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 12px rgba(0,255,65,0.25); }
-            50%       { box-shadow: 0 0 28px rgba(0,255,65,0.55); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 12px rgba(0, 255, 65, 0.25);
+            }
+
+            50% {
+                box-shadow: 0 0 28px rgba(0, 255, 65, 0.55);
+            }
         }
+
         @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
-        .animate-slide-up { animation: slideUp 0.65s cubic-bezier(0.16,1,0.3,1) both; }
-        .animate-fade { animation: fadeIn 0.5s ease both; }
-        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-        .spin-slow { animation: spin-slow 12s linear infinite; }
+
+        .animate-slide-up {
+            animation: slideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.5s ease both;
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
 
         /* ───────── Accent bar top ───────── */
         .bar-top {
-            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
             background: linear-gradient(90deg, transparent 0%, var(--accent) 30%, var(--blue) 70%, transparent 100%);
             opacity: 0.7;
         }
 
         /* ───────── Release note items ───────── */
         .note-item {
-            display: flex; gap: 10px; align-items: flex-start;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
             padding: 10px 12px;
             border-radius: 12px;
-            background: rgba(255,255,255,0.025);
+            background: rgba(255, 255, 255, 0.025);
             border: 1px solid var(--border);
             transition: border-color 0.25s, background 0.25s;
         }
-        .note-item:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.04); }
+
+        .note-item:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.04);
+        }
 
         /* ───────── Skeleton loader ───────── */
         .skeleton {
-            background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.04) 75%);
             background-size: 200% 100%;
             animation: shimmer 1.6s infinite;
             border-radius: 8px;
         }
-        @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+        @keyframes shimmer {
+            from {
+                background-position: 200% 0;
+            }
+
+            to {
+                background-position: -200% 0;
+            }
+        }
 
         /* ───────── Badge pill ───────── */
         .badge-mandatory {
-            background: rgba(239,68,68,0.12);
-            border: 1px solid rgba(239,68,68,0.35);
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
             color: #f87171;
         }
+
         .badge-optional {
-            background: rgba(0,255,65,0.08);
-            border: 1px solid rgba(0,255,65,0.28);
+            background: rgba(0, 255, 65, 0.08);
+            border: 1px solid rgba(0, 255, 65, 0.28);
             color: var(--accent);
         }
 
         /* ───────── Link hover ───────── */
         .ext-link {
-            color: rgba(255,255,255,0.45);
+            color: rgba(255, 255, 255, 0.45);
             transition: color 0.2s;
-            font-size: 11px; font-family: 'Space Grotesk', monospace;
+            font-size: 11px;
+            font-family: 'Space Grotesk', monospace;
         }
-        .ext-link:hover { color: var(--accent); }
+
+        .ext-link:hover {
+            color: var(--accent);
+        }
 
         /* ───────── Version ticker ───────── */
         .version-ticker {
@@ -197,23 +295,30 @@
         }
     </style>
 </head>
+
 <body class="min-h-screen flex flex-col select-none relative pb-12">
 
     <!-- Particles BG -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- ══════════════════════════════════════════ NAVBAR ══════════════════════════════════════════ -->
-    <nav class="relative z-20 flex items-center justify-between px-5 py-3.5 border-b border-white/5 bg-black/40 backdrop-blur-xl">
-        <a href="https://dilnuka13.github.io/DE-NOVA-READER" target="_blank" rel="noopener" class="flex items-center gap-2.5 group">
-            <img src="logo.png" alt="DE Nova Reader Logo" class="w-7 h-7 object-contain group-hover:drop-shadow-[0_0_10px_rgba(0,255,65,0.65)] transition-all duration-300">
-            <span class="text-white font-bold text-sm tracking-wider font-title uppercase">DE Nova <span class="text-nova-accent">Reader</span></span>
+    <nav
+        class="relative z-20 flex items-center justify-between px-5 py-3.5 border-b border-white/5 bg-black/40 backdrop-blur-xl">
+        <a href="https://dilnuka13.github.io/DE-NOVA-READER" target="_blank" rel="noopener"
+            class="flex items-center gap-2.5 group">
+            <img src="logo.png" alt="DE Nova Reader Logo"
+                class="w-7 h-7 object-contain group-hover:drop-shadow-[0_0_10px_rgba(0,255,65,0.65)] transition-all duration-300">
+            <span class="text-white font-bold text-sm tracking-wider font-title uppercase">DE Nova <span
+                    class="text-nova-accent">Reader</span></span>
         </a>
 
         <div class="flex items-center gap-3 sm:gap-5">
-            <a href="https://dilnuka13.github.io/DE-NOVA-READER" target="_blank" rel="noopener" class="ext-link hidden sm:block">Official Site</a>
-            <a href="https://dilnuka13.github.io/my/" target="_blank" rel="noopener" class="ext-link hidden sm:block">Developer</a>
+            <a href="https://dilnuka13.github.io/DE-NOVA-READER" target="_blank" rel="noopener"
+                class="ext-link hidden sm:block">Official Site</a>
+            <a href="https://dilnuka13.github.io/my/" target="_blank" rel="noopener"
+                class="ext-link hidden sm:block">Developer</a>
             <a id="nav-download-btn" href="#download-section"
-               class="px-4 py-2 bg-nova-accent/10 border border-nova-accent/30 hover:bg-nova-accent hover:text-black text-nova-accent text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all duration-200 font-mono flex items-center gap-1.5">
+                class="px-4 py-2 bg-nova-accent/10 border border-nova-accent/30 hover:bg-nova-accent hover:text-black text-nova-accent text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all duration-200 font-mono flex items-center gap-1.5">
                 <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
             </a>
         </div>
@@ -227,7 +332,8 @@
             <!-- Logo badge -->
             <div class="inline-flex items-center gap-2 mb-5 glass px-4 py-2 rounded-full">
                 <img src="logo.png" alt="logo" class="w-5 h-5 object-contain drop-shadow-[0_0_8px_rgba(0,255,65,0.55)]">
-                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white font-mono">Nova Reader Workspace</span>
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white font-mono">Nova Reader
+                    Workspace</span>
                 <span class="w-1.5 h-1.5 rounded-full bg-nova-accent pulse-glow"></span>
             </div>
 
@@ -241,30 +347,32 @@
             <!-- External links row -->
             <div class="flex items-center justify-center gap-4 mt-5 flex-wrap">
                 <a href="https://dilnuka13.github.io/DE-NOVA-READER" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-[11px] text-gray-400 hover:text-nova-accent transition-colors font-mono uppercase tracking-wider">
+                    class="flex items-center gap-1.5 text-[11px] text-gray-400 hover:text-nova-accent transition-colors font-mono uppercase tracking-wider">
                     <i data-lucide="globe" class="w-3 h-3"></i> Official Website
                 </a>
                 <span class="text-gray-700">|</span>
                 <a href="https://dilnuka13.github.io/my/" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-[11px] text-gray-400 hover:text-nova-blue transition-colors font-mono uppercase tracking-wider">
+                    class="flex items-center gap-1.5 text-[11px] text-gray-400 hover:text-nova-blue transition-colors font-mono uppercase tracking-wider">
                     <i data-lucide="user" class="w-3 h-3"></i> Developer Portfolio
                 </a>
                 <span class="text-gray-700">|</span>
-                <a href="mailto:isara.dilnuka@gmail.com"
-                   class="flex items-center gap-1.5 text-[11px] text-gray-400 hover:text-gray-200 transition-colors font-mono uppercase tracking-wider">
+                <a href="mailto:isaradilnuka@gmail.com"
+                    class="flex items-center gap-1.5 text-[11px] text-gray-400 hover:text-gray-200 transition-colors font-mono uppercase tracking-wider">
                     <i data-lucide="mail" class="w-3 h-3"></i> Contact
                 </a>
             </div>
         </header>
 
         <!-- ── MAIN GRID ── -->
-        <main class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start animate-slide-up" style="animation-delay:0.15s">
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start animate-slide-up"
+            style="animation-delay:0.15s">
 
             <!-- ════════ LEFT COL: Release Card + Notes ════════ -->
             <div class="lg:col-span-2 space-y-5">
 
                 <!-- Main Release Card -->
-                <div id="release-card" class="glass rounded-3xl p-6 sm:p-8 relative overflow-hidden" id="download-section">
+                <div id="release-card" class="glass rounded-3xl p-6 sm:p-8 relative overflow-hidden"
+                    id="download-section">
                     <div class="bar-top"></div>
 
                     <!-- Loading State -->
@@ -288,23 +396,31 @@
                         <div class="flex flex-wrap justify-between items-start gap-4 border-b border-white/5 pb-5">
                             <div>
                                 <div class="flex items-center gap-2 flex-wrap">
-                                    <span id="badge-type" class="px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest font-mono badge-optional">Latest Release</span>
-                                    <span id="badge-mandatory" class="hidden px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest font-mono badge-mandatory">⚡ Mandatory Update</span>
+                                    <span id="badge-type"
+                                        class="px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest font-mono badge-optional">Latest
+                                        Release</span>
+                                    <span id="badge-mandatory"
+                                        class="hidden px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest font-mono badge-mandatory">⚡
+                                        Mandatory Update</span>
                                 </div>
-                                <h2 id="release-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2 font-title uppercase"></h2>
+                                <h2 id="release-title"
+                                    class="text-2xl sm:text-3xl font-extrabold text-white mt-2 font-title uppercase">
+                                </h2>
                                 <p id="release-version-date" class="text-xs text-gray-500 mt-1 font-mono"></p>
                             </div>
                             <div class="text-right flex flex-col items-end gap-1">
                                 <span id="release-version-badge"
-                                      class="version-ticker text-lg text-nova-accent bg-nova-accent/10 border border-nova-accent/25 px-3 py-1 rounded-xl">
+                                    class="version-ticker text-lg text-nova-accent bg-nova-accent/10 border border-nova-accent/25 px-3 py-1 rounded-xl">
                                 </span>
-                                <span class="text-[10px] text-gray-600 uppercase tracking-widest font-mono">Windows x64</span>
+                                <span class="text-[10px] text-gray-600 uppercase tracking-widest font-mono">Windows
+                                    x64</span>
                             </div>
                         </div>
 
                         <!-- AI-Style Summary Block -->
                         <div>
-                            <h3 class="text-[10px] font-bold uppercase tracking-[0.22em] text-nova-accent mb-3 font-mono flex items-center gap-1.5">
+                            <h3
+                                class="text-[10px] font-bold uppercase tracking-[0.22em] text-nova-accent mb-3 font-mono flex items-center gap-1.5">
                                 <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> AI Release Summary
                             </h3>
                             <div id="release-summary-container" class="space-y-2 text-xs">
@@ -314,17 +430,20 @@
 
                         <!-- Full Notes (collapsible) -->
                         <details class="group">
-                            <summary class="cursor-pointer list-none flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-mono">
-                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 transition-transform group-open:rotate-90"></i>
+                            <summary
+                                class="cursor-pointer list-none flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-mono">
+                                <i data-lucide="chevron-right"
+                                    class="w-3.5 h-3.5 transition-transform group-open:rotate-90"></i>
                                 Full Release Notes
                             </summary>
                             <div id="release-full-notes"
-                                 class="mt-3 text-[11px] text-gray-400 leading-relaxed whitespace-pre-wrap bg-black/40 border border-white/5 rounded-2xl p-4 font-mono">
+                                class="mt-3 text-[11px] text-gray-400 leading-relaxed whitespace-pre-wrap bg-black/40 border border-white/5 rounded-2xl p-4 font-mono">
                             </div>
                         </details>
 
                         <!-- Download CTA -->
-                        <div id="download-section" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-black/50 border border-white/5 rounded-2xl p-4 sm:p-5">
+                        <div id="download-section"
+                            class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-black/50 border border-white/5 rounded-2xl p-4 sm:p-5">
                             <div class="flex-1">
                                 <h4 class="text-white font-bold font-title text-sm">Ready to Install</h4>
                                 <p class="text-[11px] text-gray-500 font-mono mt-0.5">
@@ -332,7 +451,7 @@
                                 </p>
                             </div>
                             <a id="btn-primary-download" href="#" target="_blank"
-                               class="px-7 py-3.5 bg-nova-accent hover:bg-nova-accentHover text-black font-extrabold text-[11px] uppercase tracking-widest rounded-xl transition-all flex items-center justify-center gap-2 neon-btn font-mono w-full sm:w-auto whitespace-nowrap">
+                                class="px-7 py-3.5 bg-nova-accent hover:bg-nova-accentHover text-black font-extrabold text-[11px] uppercase tracking-widest rounded-xl transition-all flex items-center justify-center gap-2 neon-btn font-mono w-full sm:w-auto whitespace-nowrap">
                                 <i data-lucide="download-cloud" class="w-4 h-4"></i> Download Setup
                             </a>
                         </div>
@@ -342,13 +461,15 @@
                     <div id="release-error" class="hidden text-center py-10 space-y-3">
                         <i data-lucide="wifi-off" class="w-10 h-10 text-gray-600 mx-auto"></i>
                         <p class="text-gray-500 text-xs font-mono">Could not connect to release servers.</p>
-                        <button onclick="fetchLatestRelease()" class="text-nova-accent text-xs font-mono hover:underline">Retry</button>
+                        <button onclick="fetchLatestRelease()"
+                            class="text-nova-accent text-xs font-mono hover:underline">Retry</button>
                     </div>
                 </div>
 
                 <!-- Tech Specs -->
                 <div id="specs-card" class="glass rounded-3xl p-6 hidden">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.22em] text-nova-accent mb-4 font-mono flex items-center gap-1.5">
+                    <h3
+                        class="text-[10px] font-bold uppercase tracking-[0.22em] text-nova-accent mb-4 font-mono flex items-center gap-1.5">
                         <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Technical Specifications
                     </h3>
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
@@ -377,7 +498,8 @@
 
                 <!-- Release History from Supabase -->
                 <div class="glass rounded-3xl p-6 flex flex-col">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-nova-accent mb-1 font-mono flex items-center gap-1.5">
+                    <h3
+                        class="text-[10px] font-bold uppercase tracking-[0.2em] text-nova-accent mb-1 font-mono flex items-center gap-1.5">
                         <i data-lucide="archive" class="w-3.5 h-3.5"></i> Release Archive
                     </h3>
                     <p class="text-gray-500 text-[11px] mb-4">All published stable versions.</p>
@@ -391,26 +513,33 @@
 
                 <!-- Quick Links -->
                 <div class="glass-blue rounded-3xl p-5">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-3 font-mono flex items-center gap-1.5">
+                    <h3
+                        class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-3 font-mono flex items-center gap-1.5">
                         <i data-lucide="link" class="w-3.5 h-3.5"></i> Quick Links
                     </h3>
                     <div class="space-y-2">
                         <a href="https://dilnuka13.github.io/DE-NOVA-READER" target="_blank" rel="noopener"
-                           class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all group text-xs">
+                            class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all group text-xs">
                             <i data-lucide="globe" class="w-4 h-4 text-blue-400 shrink-0"></i>
-                            <span class="text-gray-300 group-hover:text-white transition-colors font-mono text-[11px] truncate">Official Website</span>
+                            <span
+                                class="text-gray-300 group-hover:text-white transition-colors font-mono text-[11px] truncate">Official
+                                Website</span>
                             <i data-lucide="arrow-up-right" class="w-3 h-3 text-gray-600 shrink-0 ml-auto"></i>
                         </a>
                         <a href="https://dilnuka13.github.io/my/" target="_blank" rel="noopener"
-                           class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all group text-xs">
+                            class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all group text-xs">
                             <i data-lucide="user-round" class="w-4 h-4 text-purple-400 shrink-0"></i>
-                            <span class="text-gray-300 group-hover:text-white transition-colors font-mono text-[11px] truncate">Developer Portfolio</span>
+                            <span
+                                class="text-gray-300 group-hover:text-white transition-colors font-mono text-[11px] truncate">Developer
+                                Portfolio</span>
                             <i data-lucide="arrow-up-right" class="w-3 h-3 text-gray-600 shrink-0 ml-auto"></i>
                         </a>
-                        <a href="mailto:isara.dilnuka@gmail.com"
-                           class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all group text-xs">
+                        <a href="mailto:isaradilnuka@gmail.com"
+                            class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all group text-xs">
                             <i data-lucide="mail" class="w-4 h-4 text-nova-accent shrink-0"></i>
-                            <span class="text-gray-300 group-hover:text-white transition-colors font-mono text-[11px] truncate">Contact Developer</span>
+                            <span
+                                class="text-gray-300 group-hover:text-white transition-colors font-mono text-[11px] truncate">Contact
+                                Developer</span>
                             <i data-lucide="arrow-up-right" class="w-3 h-3 text-gray-600 shrink-0 ml-auto"></i>
                         </a>
                     </div>
@@ -418,15 +547,16 @@
 
                 <!-- Help Card -->
                 <div class="glass rounded-3xl p-5 border border-yellow-500/10">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-yellow-400 mb-2 font-mono flex items-center gap-1.5">
+                    <h3
+                        class="text-[10px] font-bold uppercase tracking-[0.2em] text-yellow-400 mb-2 font-mono flex items-center gap-1.5">
                         <i data-lucide="headphones" class="w-3.5 h-3.5"></i> Support
                     </h3>
                     <p class="text-[11px] text-gray-400 leading-relaxed mb-3">
                         Facing installation issues or a corrupted download? Reach out to the developer directly.
                     </p>
-                    <a href="mailto:isara.dilnuka@gmail.com"
-                       class="text-[11px] text-nova-accent font-bold hover:underline uppercase tracking-wider block font-mono">
-                        isara.dilnuka@gmail.com →
+                    <a href="mailto:isaradilnuka@gmail.com"
+                        class="text-[11px] text-nova-accent font-bold hover:underline uppercase tracking-wider block font-mono">
+                        isaradilnuka@gmail.com →
                     </a>
                 </div>
 
@@ -434,7 +564,8 @@
         </main>
 
         <!-- ── FOOTER ── -->
-        <footer class="text-center text-[10px] text-gray-700 font-mono uppercase tracking-widest animate-fade mt-4" style="animation-delay:0.4s">
+        <footer class="text-center text-[10px] text-gray-700 font-mono uppercase tracking-widest animate-fade mt-4"
+            style="animation-delay:0.4s">
             <p>© 2026 Isara Dilnuka. All Rights Reserved.</p>
             <p class="mt-1 text-gray-800">DE Nova Reader &bull; Futuristic PDF Workspace</p>
         </footer>
@@ -443,7 +574,7 @@
     <!-- ══════════════════════════════════════════ SCRIPTS ══════════════════════════════════════════ -->
     <script>
         // ─── Supabase Init ───
-        const SUPABASE_URL     = "https://pxrwtywphszseecvrqpq.supabase.co";
+        const SUPABASE_URL = "https://pxrwtywphszseecvrqpq.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4cnd0eXdwaHN6c2VlY3ZycXBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0NjgxODksImV4cCI6MjA5NTA0NDE4OX0.0XlT4K61xjPtE_nmyXSlKciWtjc7WX9qXgiZ1rwBiXg";
         const supa = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
@@ -454,7 +585,7 @@
         function fmtDate(iso) {
             if (!iso) return '';
             const d = new Date(iso);
-            return d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+            return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
         // ─── AI-style summary builder: parse release_notes into bullet-style items ───
@@ -469,15 +600,15 @@
 
         // ─── Lucide icon per note keyword ───
         const ICON_MAP = [
-            [/fix|bug|patch|repair/i,         'wrench'],
-            [/ui|design|visual|style|layout/i,'palette'],
-            [/performance|speed|fast|optim/i,  'zap'],
-            [/security|auth|safe|protect/i,    'shield'],
-            [/database|sync|cloud|storage/i,   'database'],
-            [/update|version|release/i,        'refresh-ccw'],
-            [/feature|add|new|support/i,       'sparkles'],
-            [/network|download|connect/i,      'wifi'],
-            [/pdf|reader|document|page/i,      'file-text'],
+            [/fix|bug|patch|repair/i, 'wrench'],
+            [/ui|design|visual|style|layout/i, 'palette'],
+            [/performance|speed|fast|optim/i, 'zap'],
+            [/security|auth|safe|protect/i, 'shield'],
+            [/database|sync|cloud|storage/i, 'database'],
+            [/update|version|release/i, 'refresh-ccw'],
+            [/feature|add|new|support/i, 'sparkles'],
+            [/network|download|connect/i, 'wifi'],
+            [/pdf|reader|document|page/i, 'file-text'],
         ];
         function noteIcon(text) {
             for (const [re, icon] of ICON_MAP) {
@@ -548,8 +679,8 @@
                 <a href="${rel.download_url || '#'}" target="_blank"
                    class="flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl border transition-all
                           ${i === 0
-                              ? 'border-nova-accent/25 bg-nova-accent/5 hover:bg-nova-accent/10'
-                              : 'border-white/5 bg-white/[0.02] hover:bg-white/5 hover:border-white/10'}
+                    ? 'border-nova-accent/25 bg-nova-accent/5 hover:bg-nova-accent/10'
+                    : 'border-white/5 bg-white/[0.02] hover:bg-white/5 hover:border-white/10'}
                           group">
                     <div class="min-w-0">
                         <p class="text-white text-xs font-bold font-mono truncate">v${rel.version}</p>
@@ -558,8 +689,8 @@
                     <div class="flex items-center gap-2 shrink-0">
                         ${i === 0 ? '<span class="text-[9px] text-nova-accent font-bold font-mono uppercase bg-nova-accent/10 border border-nova-accent/20 px-2 py-0.5 rounded-full">Latest</span>' : ''}
                         ${rel.download_url
-                            ? `<i data-lucide="download" class="w-3.5 h-3.5 text-gray-500 group-hover:text-nova-accent transition-colors"></i>`
-                            : `<i data-lucide="link-2-off" class="w-3.5 h-3.5 text-gray-700"></i>`}
+                    ? `<i data-lucide="download" class="w-3.5 h-3.5 text-gray-500 group-hover:text-nova-accent transition-colors"></i>`
+                    : `<i data-lucide="link-2-off" class="w-3.5 h-3.5 text-gray-700"></i>`}
                     </div>
                 </a>`).join('');
             lucide.createIcons();
@@ -606,15 +737,15 @@
 
 
         // ─────────────────────────── PARTICLES ───────────────────────────
-        (function() {
+        (function () {
             const canvas = document.getElementById('particles-canvas');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
-            let W = canvas.width  = window.innerWidth;
+            let W = canvas.width = window.innerWidth;
             let H = canvas.height = window.innerHeight;
 
             window.addEventListener('resize', () => {
-                W = canvas.width  = window.innerWidth;
+                W = canvas.width = window.innerWidth;
                 H = canvas.height = window.innerHeight;
             });
 
@@ -623,13 +754,13 @@
             class P {
                 constructor() { this.reset(); }
                 reset() {
-                    this.x  = Math.random() * W;
-                    this.y  = Math.random() * H;
+                    this.x = Math.random() * W;
+                    this.y = Math.random() * H;
                     this.vx = (Math.random() - 0.5) * 0.38;
                     this.vy = (Math.random() - 0.5) * 0.38;
-                    this.r  = Math.random() * 1.6 + 0.4;
-                    this.a  = Math.random() * 0.45 + 0.05;
-                    this.c  = COLORS[Math.random() > 0.75 ? 1 : 0];
+                    this.r = Math.random() * 1.6 + 0.4;
+                    this.a = Math.random() * 0.45 + 0.05;
+                    this.c = COLORS[Math.random() > 0.75 ? 1 : 0];
                 }
                 draw() {
                     ctx.beginPath();
@@ -658,7 +789,7 @@
                     for (let j = i + 1; j < pts.length; j++) {
                         const d = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
                         if (d < 110) {
-                            ctx.strokeStyle = `rgba(0,255,65,${(1 - d/110) * 0.06})`;
+                            ctx.strokeStyle = `rgba(0,255,65,${(1 - d / 110) * 0.06})`;
                             ctx.lineWidth = 0.5;
                             ctx.moveTo(pts[i].x, pts[i].y);
                             ctx.lineTo(pts[j].x, pts[j].y);
@@ -672,4 +803,5 @@
         })();
     </script>
 </body>
+
 </html>
