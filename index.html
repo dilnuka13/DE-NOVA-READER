@@ -312,23 +312,23 @@
                     class="text-nova-accent">Reader</span></span>
         </a>
 
-        <div class="flex items-center gap-3 sm:gap-5">
-            <a href="https://dilnuka13.github.io/DE-NOVA-READER" target="_blank" rel="noopener"
-                class="ext-link hidden sm:block">Official Site</a>
-            <a href="https://dilnuka13.github.io/my/" target="_blank" rel="noopener"
-                class="ext-link hidden sm:block">Developer</a>
-            <a id="nav-download-btn" href="#download-section"
-                class="px-4 py-2 bg-nova-accent/10 border border-nova-accent/30 hover:bg-nova-accent hover:text-black text-nova-accent text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all duration-200 font-mono flex items-center gap-1.5">
-                <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
-            </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+            <button id="nav-tab-download" class="px-3 py-1.5 bg-nova-accent text-black font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all select-none font-mono flex items-center gap-1">
+                <i data-lucide="download" class="w-3 h-3"></i> Get App
+            </button>
+            <button id="nav-tab-cloud" class="px-3 py-1.5 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-gray-300 hover:text-white font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all select-none font-mono flex items-center gap-1">
+                <i data-lucide="cloud" class="w-3 h-3"></i> Cloud Portal
+            </button>
         </div>
     </nav>
 
     <!-- ══════════════════════════════════════════ MAIN ══════════════════════════════════════════ -->
     <div class="container mx-auto px-4 max-w-5xl z-10 flex-1 flex flex-col py-10 gap-10">
 
-        <!-- ── HERO ── -->
-        <header class="text-center animate-slide-up" style="animation-delay:0.05s">
+        <!-- PANEL: DOWNLOAD -->
+        <div id="panel-download" class="flex flex-col gap-10">
+            <!-- ── HERO ── -->
+            <header class="text-center animate-slide-up" style="animation-delay:0.05s">
             <!-- Logo badge -->
             <div class="inline-flex items-center gap-2 mb-5 glass px-4 py-2 rounded-full">
                 <img src="logo.png" alt="logo" class="w-5 h-5 object-contain drop-shadow-[0_0_8px_rgba(0,255,65,0.55)]">
@@ -569,6 +569,193 @@
             <p>© 2026 Isara Dilnuka. All Rights Reserved.</p>
             <p class="mt-1 text-gray-800">DE Nova Reader &bull; Futuristic PDF Workspace</p>
         </footer>
+        </div> <!-- End of panel-download -->
+
+        <!-- PANEL: CLOUD (Auth & Explorer) -->
+        <div id="panel-cloud" class="hidden flex flex-col gap-6 animate-slide-up">
+            
+            <!-- Auth Container (Sign In / Register) -->
+            <div id="cloud-auth-container" class="glass rounded-3xl p-6 sm:p-8 max-w-md mx-auto w-full relative overflow-hidden mt-6">
+                <div class="bar-top"></div>
+                <div class="text-center mb-6">
+                    <div class="inline-flex items-center gap-2 mb-3 glass px-3 py-1.5 rounded-full">
+                        <img src="logo.png" alt="logo" class="w-4 h-4 object-contain drop-shadow-[0_0_8px_rgba(0,255,65,0.55)]">
+                        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-white font-mono">Cloud Workspace</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-white font-title uppercase tracking-tight">DE NOVA <span class="text-nova-accent">PORTAL</span></h2>
+                    <p class="text-[10px] text-gray-500 font-mono mt-1">Access your document cloud database anywhere</p>
+                </div>
+                
+                <!-- Tabs: Sign In / Create Account -->
+                <div class="flex border-b border-white/5 mb-6 text-[10px] font-bold uppercase tracking-wider font-mono">
+                    <button id="auth-tab-login" class="flex-1 pb-3 text-nova-accent border-b-2 border-nova-accent font-bold">Sign In</button>
+                    <button id="auth-tab-register" class="flex-1 pb-3 text-gray-500 hover:text-white font-bold">Register</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="web-login-form" class="space-y-4 text-left">
+                    <div class="space-y-1">
+                        <label class="text-[9px] text-gray-500 uppercase tracking-widest block font-mono">Email Address</label>
+                        <input type="email" id="web-login-email" required class="w-full bg-black/40 border border-white/5 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors" placeholder="yourname@example.com">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[9px] text-gray-500 uppercase tracking-widest block font-mono">Password</label>
+                        <input type="password" id="web-login-password" required class="w-full bg-black/40 border border-white/5 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-nova-accent hover:bg-nova-accentHover text-black font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all neon-btn font-mono">
+                        Verify & Enter Workspace
+                    </button>
+                </form>
+                
+                <!-- Register Form -->
+                <form id="web-register-form" class="space-y-4 text-left hidden">
+                    <div class="space-y-1">
+                        <label class="text-[9px] text-gray-500 uppercase tracking-widest block font-mono">Full Name</label>
+                        <input type="text" id="web-register-name" required class="w-full bg-black/40 border border-white/5 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors" placeholder="Isara Dilnuka">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[9px] text-gray-500 uppercase tracking-widest block font-mono">Date of Birth</label>
+                        <input type="date" id="web-register-dob" required class="w-full bg-black/40 border border-white/5 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[9px] text-gray-500 uppercase tracking-widest block font-mono">Email Address</label>
+                        <input type="email" id="web-register-email" required class="w-full bg-black/40 border border-white/5 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors" placeholder="yourname@example.com">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[9px] text-gray-500 uppercase tracking-widest block font-mono">Password</label>
+                        <input type="password" id="web-register-password" required class="w-full bg-black/40 border border-white/5 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors" placeholder="At least 6 characters">
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-nova-accent hover:bg-nova-accentHover text-black font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all neon-btn font-mono">
+                        Create Cloud Account
+                    </button>
+                </form>
+            </div>
+
+            <!-- Explorer Container (File Manager) -->
+            <div id="cloud-explorer-container" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-6 items-start w-full">
+                
+                <!-- Left Side: User Profile & Config -->
+                <div class="space-y-5">
+                    
+                    <!-- Profile Card -->
+                    <div class="glass rounded-3xl p-6 relative overflow-hidden">
+                        <div class="bar-top"></div>
+                        <div class="flex items-center gap-4">
+                            <div id="web-profile-avatar" class="w-12 h-12 rounded-full bg-nova-accent/15 border-2 border-nova-accent/65 flex items-center justify-center text-sm font-extrabold text-nova-accent shadow-[0_0_15px_rgba(0,255,65,0.45)] ring-1 ring-nova-accent/20 overflow-hidden shrink-0">
+                                N
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h3 id="web-profile-name" class="text-white font-bold font-title text-base uppercase truncate">Nova Reader</h3>
+                                <p id="web-profile-email" class="text-gray-500 text-[10px] font-mono truncate">guest@nova.com</p>
+                            </div>
+                        </div>
+                        
+                        <button id="web-btn-logout" class="w-full mt-5 py-2 bg-red-500/10 hover:bg-red-500/25 border border-red-500/30 text-red-500 font-bold text-[9px] uppercase tracking-widest rounded-xl transition-all font-mono flex items-center justify-center gap-1.5">
+                            <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Sign Out
+                        </button>
+                    </div>
+
+                    <!-- Storage Config Card -->
+                    <div class="glass rounded-3xl p-6 relative overflow-hidden">
+                        <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-nova-accent mb-4 font-mono flex items-center gap-1.5">
+                            <i data-lucide="hard-drive" class="w-3.5 h-3.5"></i> Storage Connection
+                        </h3>
+                        
+                        <div class="space-y-4 text-xs">
+                            <div class="space-y-1">
+                                <label class="text-[8px] text-gray-500 uppercase tracking-widest block font-mono">Active Provider</label>
+                                <select id="web-storage-provider" class="w-full bg-black/40 border border-white/5 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors">
+                                    <option value="supabase" class="bg-nova-bg text-white">Supabase Cloud (50MB Limit)</option>
+                                    <option value="gdrive" class="bg-nova-bg text-white">Google Drive (15GB Free)</option>
+                                </select>
+                            </div>
+
+                            <!-- Google Drive Config Section (Hidden by default) -->
+                            <div id="web-gdrive-config" class="hidden space-y-4 pt-2 border-t border-white/5 animate-fade">
+                                <div class="flex justify-between items-center bg-black/30 p-2.5 rounded-xl border border-white/5">
+                                    <span class="text-[9px] uppercase tracking-wider text-gray-400 font-bold">Status:</span>
+                                    <strong id="web-gdrive-status" class="text-red-500 uppercase font-bold text-[9px]">Not Connected</strong>
+                                </div>
+                                
+                                <button type="button" id="web-btn-link-gdrive" class="w-full py-2.5 bg-nova-accent text-black font-extrabold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all text-[9px] uppercase tracking-widest flex items-center justify-center gap-1.5 cursor-pointer neon-btn font-mono">
+                                    <i data-lucide="link" class="w-3.5 h-3.5"></i> Link Google Drive
+                                </button>
+                                
+                                <div class="bg-yellow-500/10 border border-yellow-500/25 p-3 rounded-xl text-[9.5px] text-yellow-500/90 leading-normal">
+                                    <i data-lucide="alert-triangle" class="w-3.5 h-3.5 inline mr-1 shrink-0 align-middle"></i>
+                                    web security සීමාවන් නිසා Google Drive සම්බන්ධතාවය පැයකින් කල් ඉකුත් වේ. අවශ්‍ය විට නැවත Link කරන්න.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Side: Cloud Explorer Files -->
+                <div class="lg:col-span-2 space-y-5">
+                    
+                    <!-- Cloud Files Explorer Card -->
+                    <div class="glass rounded-3xl p-6 relative overflow-hidden">
+                        <div class="bar-top"></div>
+                        
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/5 pb-4 mb-4">
+                            <div>
+                                <h2 class="text-lg font-bold text-white font-title uppercase tracking-wide flex items-center gap-2">
+                                    <i data-lucide="cloud" class="w-5 h-5 text-nova-accent animate-pulse"></i>
+                                    <span id="web-cloud-title">Cloud Storage Explorer</span>
+                                </h2>
+                                <p class="text-gray-500 text-[10px] font-mono uppercase tracking-wider mt-0.5" id="web-cloud-subtitle">Supabase Cloud Server</p>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 w-full sm:w-auto">
+                                <button id="web-btn-refresh" class="p-2.5 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 rounded-xl transition-all text-nova-accent" title="Refresh Files">
+                                    <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                                </button>
+                                <button id="web-btn-upload" class="px-4 py-2.5 bg-nova-accent/15 border border-nova-accent/30 hover:bg-nova-accent hover:text-black text-nova-accent font-bold text-[10px] uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 flex-1 sm:flex-none justify-center">
+                                    <i data-lucide="upload" class="w-3.5 h-3.5"></i> Upload PDF
+                                </button>
+                                <input type="file" id="web-cloud-file-input" accept="application/pdf" class="hidden">
+                            </div>
+                        </div>
+
+                        <!-- Space progress bar -->
+                        <div class="p-3 bg-white/2 border border-white/5 rounded-2xl mb-4">
+                            <div class="flex justify-between items-center mb-1.5 text-[9px] uppercase font-bold tracking-wider text-gray-400 font-mono">
+                                <span>Storage space utilization</span>
+                                <span id="web-cloud-usage" class="text-nova-accent">0.00 MB / 50.00 MB (0%)</span>
+                            </div>
+                            <div class="w-full h-2 bg-white/5 border border-white/10 rounded-full overflow-hidden relative">
+                                <div id="web-cloud-bar" class="absolute top-0 left-0 h-full bg-nova-accent w-0 transition-all duration-300 rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Search bar -->
+                        <div class="relative mb-4">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-500">
+                                <i data-lucide="search" class="w-4 h-4"></i>
+                            </span>
+                            <input type="text" id="web-search-input" class="w-full bg-black/40 border border-white/5 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-nova-accent transition-colors font-mono" placeholder="Search files in cloud...">
+                        </div>
+
+                        <!-- File List Scroll Container -->
+                        <div class="bg-[#070707]/60 border border-white/5 rounded-2xl p-4 min-h-[300px] flex flex-col justify-center relative">
+                            <div id="web-files-list" class="space-y-2.5 overflow-y-auto custom-scrollbar max-h-[400px] flex-1 flex flex-col justify-center">
+                                <!-- Dynamic Content -->
+                                <div class="flex flex-col items-center justify-center text-center p-6 text-gray-500">
+                                    <i data-lucide="cloud-off" class="w-8 h-8 mb-2"></i>
+                                    <p class="text-xs font-bold text-gray-400">No files in Cloud</p>
+                                    <p class="text-[10px] mt-0.5">Upload PDF documents to access them securely</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <!-- ══════════════════════════════════════════ SCRIPTS ══════════════════════════════════════════ -->
@@ -736,6 +923,747 @@
         fetchLatestRelease();
 
 
+        // ============================================================================================
+        // ════════════════════════════ CLOUD PORTAL WEB JS LOGIC ═════════════════════════════════════
+        // ============================================================================================
+
+        // ─── Cloud Explorer Variables ───
+        let activeWebUser = null;
+        let activeStorageBucket = 'avatars';
+        let currentCloudUsageBytes = 0;
+        let allCloudFiles = [];
+
+        // ─── Toast Notification System ───
+        function showToast(title, message, type = "success") {
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'fixed bottom-6 right-6 z-[250] flex flex-col gap-3 max-w-sm w-full px-4';
+                document.body.appendChild(container);
+            }
+            
+            const toast = document.createElement('div');
+            let borderAccent = "border-nova-accent";
+            let iconName = "check-circle";
+            if (type === "error") {
+                borderAccent = "border-red-500";
+                iconName = "alert-circle";
+            } else if (type === "info") {
+                borderAccent = "border-blue-500";
+                iconName = "info";
+            }
+            
+            toast.className = `glass border border-white/5 border-l-4 ${borderAccent} p-4 rounded-2xl flex items-start gap-3 shadow-[0_15px_40px_rgba(0,0,0,0.65)] transform translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto`;
+            toast.innerHTML = `
+                <i data-lucide="${iconName}" class="w-4 h-4 text-white shrink-0 mt-0.5"></i>
+                <div class="flex-1 min-w-0">
+                    <h4 class="text-white text-[11px] font-bold uppercase tracking-wider font-title">${title}</h4>
+                    <p class="text-gray-400 text-[9.5px] mt-0.5 font-mono leading-normal">${message}</p>
+                </div>
+            `;
+            
+            container.appendChild(toast);
+            if (window.lucide) lucide.createIcons();
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-4', 'opacity-0');
+            }, 50);
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        // ─── Tab Switcher Logic ───
+        const tabBtnDownload = document.getElementById('nav-tab-download');
+        const tabBtnCloud = document.getElementById('nav-tab-cloud');
+        const panelDownload = document.getElementById('panel-download');
+        const panelCloud = document.getElementById('panel-cloud');
+
+        function switchTab(tab) {
+            if (tab === 'download') {
+                panelDownload.classList.remove('hidden');
+                panelCloud.classList.add('hidden');
+                tabBtnDownload.className = "px-3 py-1.5 bg-nova-accent text-black font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all select-none font-mono flex items-center gap-1";
+                tabBtnCloud.className = "px-3 py-1.5 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-gray-300 hover:text-white font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all select-none font-mono flex items-center gap-1";
+            } else {
+                panelDownload.classList.add('hidden');
+                panelCloud.classList.remove('hidden');
+                tabBtnCloud.className = "px-3 py-1.5 bg-nova-accent text-black font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all select-none font-mono flex items-center gap-1";
+                tabBtnDownload.className = "px-3 py-1.5 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-gray-300 hover:text-white font-extrabold text-[10px] uppercase tracking-widest rounded-xl transition-all select-none font-mono flex items-center gap-1";
+                
+                initWebCloudPortal();
+            }
+        }
+
+        tabBtnDownload.onclick = () => switchTab('download');
+        tabBtnCloud.onclick = () => switchTab('cloud');
+
+        // ─── Auth Form Switching ───
+        const authTabLogin = document.getElementById('auth-tab-login');
+        const authTabRegister = document.getElementById('auth-tab-register');
+        const webLoginForm = document.getElementById('web-login-form');
+        const webRegisterForm = document.getElementById('web-register-form');
+
+        authTabLogin.onclick = () => {
+            authTabLogin.className = "flex-1 pb-3 text-nova-accent border-b-2 border-nova-accent font-bold";
+            authTabRegister.className = "flex-1 pb-3 text-gray-500 hover:text-white font-bold";
+            webLoginForm.classList.remove('hidden');
+            webRegisterForm.classList.add('hidden');
+        };
+
+        authTabRegister.onclick = () => {
+            authTabRegister.className = "flex-1 pb-3 text-nova-accent border-b-2 border-nova-accent font-bold";
+            authTabLogin.className = "flex-1 pb-3 text-gray-500 hover:text-white font-bold";
+            webLoginForm.classList.add('hidden');
+            webRegisterForm.classList.remove('hidden');
+        };
+
+        // ─── Supabase Auth Operations ───
+        async function initWebCloudPortal() {
+            if (!supa) {
+                showToast("Connection Error", "Database client not available.", "error");
+                return;
+            }
+            
+            // Check Google Drive Redirect Fragment first
+            const hasGDriveCallback = checkGoogleAuthCallback();
+            
+            const { data: { session } } = await supa.auth.getSession();
+            if (session) {
+                await handleUserLoggedIn(session.user);
+                if (hasGDriveCallback) {
+                    showToast("Google Drive Connected", "Drive workspace is successfully authorized.", "success");
+                }
+            } else {
+                handleUserLoggedOut();
+                if (hasGDriveCallback) {
+                    // Switch back to cloud tab automatically so they see login
+                    showToast("Authorization Received", "Please sign in to your Supabase account to sync.", "info");
+                }
+            }
+        }
+
+        webLoginForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('web-login-email').value.trim();
+            const password = document.getElementById('web-login-password').value;
+            
+            showToast("Signing In...", "Verifying your workspace credentials", "info");
+            try {
+                const { data, error } = await supa.auth.signInWithPassword({ email, password });
+                if (error) throw error;
+                showToast("Welcome Back!", "Successfully signed in to cloud workspace.", "success");
+                await handleUserLoggedIn(data.user);
+            } catch (err) {
+                showToast("Login Failed", err.message, "error");
+            }
+        };
+
+        webRegisterForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('web-register-name').value.trim();
+            const dob = document.getElementById('web-register-dob').value;
+            const email = document.getElementById('web-register-email').value.trim();
+            const password = document.getElementById('web-register-password').value;
+            
+            showToast("Creating Profile...", "Registering cloud user account", "info");
+            try {
+                const { data, error } = await supa.auth.signUp({
+                    email,
+                    password,
+                    options: {
+                        data: {
+                            full_name: name,
+                            dob: dob
+                        }
+                    }
+                });
+                if (error) throw error;
+                
+                if (data.user) {
+                    await supa.from('user_profiles').upsert({
+                        user_id: data.user.id,
+                        email: email,
+                        full_name: name,
+                        dob: dob,
+                        theme: 'dark',
+                        default_zoom: '1.25',
+                        scroll_speed: 2,
+                        dict_enabled: true,
+                        updated_at: new Date().toISOString()
+                    });
+                }
+                
+                showToast("Success", "Account created. Please check email or sign in.", "success");
+                if (data.session) {
+                    await handleUserLoggedIn(data.user);
+                } else {
+                    authTabLogin.click();
+                }
+            } catch (err) {
+                showToast("Registration Failed", err.message, "error");
+            }
+        };
+
+        document.getElementById('web-btn-logout').onclick = async () => {
+            showToast("Signing Out...", "Closing active cloud workspace session", "info");
+            await supa.auth.signOut();
+            handleUserLoggedOut();
+            showToast("Logged Out", "Session closed successfully.", "success");
+        };
+
+        // ─── Session Initialization UI ───
+        async function handleUserLoggedIn(user) {
+            activeWebUser = user;
+            document.getElementById('cloud-auth-container').classList.add('hidden');
+            document.getElementById('cloud-explorer-container').classList.remove('hidden');
+            
+            let fullName = user.user_metadata?.full_name || 'Nova Reader';
+            let avatarUrl = '';
+            
+            try {
+                const { data, error } = await supa
+                    .from('user_profiles')
+                    .select('*')
+                    .eq('user_id', user.id)
+                    .single();
+                if (data) {
+                    fullName = data.full_name || fullName;
+                    avatarUrl = data.avatar_url || '';
+                }
+            } catch (err) {
+                console.warn("Extended profile fetch error:", err);
+            }
+            
+            document.getElementById('web-profile-name').textContent = fullName;
+            document.getElementById('web-profile-email').textContent = user.email;
+            
+            const avatarDiv = document.getElementById('web-profile-avatar');
+            if (avatarUrl) {
+                avatarDiv.innerHTML = `<img src="${avatarUrl}" class="w-full h-full object-cover" alt="Avatar">`;
+            } else {
+                avatarDiv.innerHTML = fullName.charAt(0).toUpperCase();
+            }
+            
+            initWebStorageProvider(user);
+        }
+
+        function handleUserLoggedOut() {
+            activeWebUser = null;
+            document.getElementById('cloud-auth-container').classList.remove('hidden');
+            document.getElementById('cloud-explorer-container').classList.add('hidden');
+        }
+
+        // ─── Storage Configurations ───
+        const storageSelect = document.getElementById('web-storage-provider');
+        const gdriveConfig = document.getElementById('web-gdrive-config');
+
+        function initWebStorageProvider(user) {
+            const provider = localStorage.getItem('nova_storage_provider') || 'supabase';
+            storageSelect.value = provider;
+            toggleProviderUI(provider);
+            
+            storageSelect.onchange = (e) => {
+                const newProv = e.target.value;
+                localStorage.setItem('nova_storage_provider', newProv);
+                toggleProviderUI(newProv);
+                loadWebCloudFiles();
+            };
+            
+            loadWebCloudFiles();
+        }
+
+        function toggleProviderUI(provider) {
+            const title = document.getElementById('web-cloud-title');
+            const subtitle = document.getElementById('web-cloud-subtitle');
+            
+            if (provider === 'gdrive') {
+                title.textContent = "Google Drive Explorer";
+                subtitle.textContent = "Google Drive Cloud Storage";
+                gdriveConfig.classList.remove('hidden');
+                updateGDriveConnectionStatus();
+            } else {
+                title.textContent = "Cloud Storage Explorer";
+                subtitle.textContent = "Supabase Cloud Server";
+                gdriveConfig.classList.add('hidden');
+            }
+        }
+
+        function updateGDriveConnectionStatus() {
+            const statusLbl = document.getElementById('web-gdrive-status');
+            const btnLink = document.getElementById('web-btn-link-gdrive');
+            const tokensStr = localStorage.getItem('nova_web_gdrive_tokens');
+            
+            if (tokensStr) {
+                const tokens = JSON.parse(tokensStr);
+                const expiryTime = (tokens.created_at || 0) + (tokens.expires_in * 1000);
+                if (Date.now() < expiryTime - 5000) {
+                    statusLbl.textContent = "CONNECTED";
+                    statusLbl.className = "text-nova-accent uppercase font-bold text-[9px]";
+                    btnLink.innerHTML = `<i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reconnect Drive`;
+                    if (window.lucide) lucide.createIcons();
+                    return;
+                }
+            }
+            
+            statusLbl.textContent = "NOT CONNECTED";
+            statusLbl.className = "text-red-500 uppercase font-bold text-[9px]";
+            btnLink.innerHTML = `<i data-lucide="link" class="w-3.5 h-3.5"></i> Link Google Drive`;
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // ─── Google Drive OAuth Redirect Url Builder ───
+        function getGoogleAuthUrl() {
+            const clientId = '1055743453303-om78018h2jnd18m8c8r2a8i8om8a8j8e.apps.googleusercontent.com';
+            const redirectUri = window.location.origin + window.location.pathname;
+            const scope = 'https://www.googleapis.com/auth/drive.file';
+            const responseType = 'token';
+            const state = 'gdrive_link';
+            return `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=${responseType}&scope=${encodeURIComponent(scope)}&state=${state}`;
+        }
+
+        function checkGoogleAuthCallback() {
+            const hash = window.location.hash;
+            if (hash) {
+                const params = new URLSearchParams(hash.substring(1));
+                const accessToken = params.get('access_token');
+                const expiresStr = params.get('expires_in');
+                const state = params.get('state');
+                
+                if (accessToken && state === 'gdrive_link') {
+                    const expires = parseInt(expiresStr) || 3600;
+                    const tokens = {
+                        access_token: accessToken,
+                        expires_in: expires,
+                        created_at: Date.now()
+                    };
+                    localStorage.setItem('nova_web_gdrive_tokens', JSON.stringify(tokens));
+                    localStorage.setItem('nova_storage_provider', 'gdrive');
+                    
+                    window.history.replaceState(null, null, window.location.pathname);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        document.getElementById('web-btn-link-gdrive').onclick = () => {
+            showToast("Connecting...", "Redirecting to Google Sign-In", "info");
+            window.location.href = getGoogleAuthUrl();
+        };
+
+        // ─── Load Web Files ───
+        async function loadWebCloudFiles() {
+            const provider = localStorage.getItem('nova_storage_provider') || 'supabase';
+            const listCont = document.getElementById('web-files-list');
+            if (!listCont) return;
+            
+            listCont.innerHTML = `
+                <div class="flex items-center justify-center p-6 flex-1 text-nova-accent">
+                    <i data-lucide="refresh-cw" class="w-6 h-6 animate-spin"></i>
+                </div>
+            `;
+            if (window.lucide) lucide.createIcons();
+            
+            try {
+                if (provider === 'gdrive') {
+                    const accessToken = await getWebGDriveAccessToken();
+                    if (!accessToken) {
+                        listCont.innerHTML = `
+                            <div class="flex flex-col items-center justify-center text-center p-6 text-gray-500 flex-1">
+                                <i data-lucide="link-2" class="w-8 h-8 mb-2 text-gray-600"></i>
+                                <p class="text-xs font-bold">Google Drive Not Connected</p>
+                                <p class="text-[10px] mt-0.5">Please click "Link Google Drive" to authorize access.</p>
+                            </div>
+                        `;
+                        updateWebStorageUsage(0, 16106127360);
+                        if (window.lucide) lucide.createIcons();
+                        return;
+                    }
+                    
+                    const files = await webGDriveListFiles(accessToken);
+                    allCloudFiles = files.map(f => ({
+                        id: f.id,
+                        name: f.name,
+                        size: parseInt(f.size) || 0
+                    }));
+                } else {
+                    if (!supa || !activeWebUser) return;
+                    
+                    const cleanId = activeWebUser.id.toLowerCase().replace(/[^a-z0-9-]/g, '');
+                    const userBucketName = `user-storage-${cleanId}`;
+                    
+                    let bucket = 'avatars';
+                    let path = `user-files/${activeWebUser.id}`;
+                    
+                    try {
+                        const { data: buckets } = await supa.storage.listBuckets();
+                        if (buckets && buckets.some(b => b.name === userBucketName)) {
+                            bucket = userBucketName;
+                            path = '';
+                        }
+                    } catch (err) {
+                        console.warn("Bucket access check failed, using fallback:", err);
+                    }
+                    
+                    activeStorageBucket = bucket;
+                    
+                    const { data: files, error } = await supa.storage.from(bucket).list(path);
+                    if (error) throw error;
+                    
+                    const cleanFiles = (files || []).filter(f => f.name !== '.emptyFolderPlaceholder');
+                    allCloudFiles = cleanFiles.map(f => ({
+                        id: f.id,
+                        name: f.name,
+                        size: f.metadata?.size || f.size || 0,
+                        path: path ? `${path}/${f.name}` : f.name
+                    }));
+                }
+                
+                renderWebCloudFiles(allCloudFiles);
+            } catch (err) {
+                console.error("List files failure:", err);
+                listCont.innerHTML = `
+                    <div class="flex flex-col items-center justify-center text-center p-6 text-red-500 flex-1">
+                        <i data-lucide="alert-circle" class="w-8 h-8 mb-2"></i>
+                        <p class="text-xs font-bold">Failed to load files</p>
+                        <p class="text-[9px] mt-0.5 text-gray-500">${err.message || "Error communicating with cloud server."}</p>
+                    </div>
+                `;
+                if (window.lucide) lucide.createIcons();
+            }
+        }
+
+        async function getWebGDriveAccessToken() {
+            const tokensStr = localStorage.getItem('nova_web_gdrive_tokens');
+            if (!tokensStr) return null;
+            const tokens = JSON.parse(tokensStr);
+            const expiryTime = (tokens.created_at || 0) + (tokens.expires_in * 1000);
+            if (Date.now() >= expiryTime - 5000) {
+                localStorage.removeItem('nova_web_gdrive_tokens');
+                updateGDriveConnectionStatus();
+                return null;
+            }
+            return tokens.access_token;
+        }
+
+        async function webGDriveGetFolderId(accessToken) {
+            const q = "name = 'DE Nova Reader' and mimeType = 'application/vnd.google-apps.folder' and trashed = false";
+            const res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)`, {
+                headers: { 'Authorization': `Bearer ${accessToken}` }
+            });
+            if (!res.ok) throw new Error("Failed to query folder on Drive");
+            const data = await res.json();
+            if (data.files && data.files.length > 0) {
+                return data.files[0].id;
+            }
+            
+            const createRes = await fetch('https://www.googleapis.com/drive/v3/files', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: 'DE Nova Reader',
+                    mimeType: 'application/vnd.google-apps.folder'
+                })
+            });
+            if (!createRes.ok) throw new Error("Failed to create folder on Drive");
+            const folder = await createRes.json();
+            return folder.id;
+        }
+
+        async function webGDriveListFiles(accessToken) {
+            const folderId = await webGDriveGetFolderId(accessToken);
+            const q = `'${folderId}' in parents and trashed = false`;
+            const res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name,size,mimeType)`, {
+                headers: { 'Authorization': `Bearer ${accessToken}` }
+            });
+            if (!res.ok) throw new Error("Failed to query files from Drive");
+            const data = await res.json();
+            return data.files || [];
+        }
+
+        function updateWebStorageUsage(totalSize, limitBytes) {
+            const usedMB = (totalSize / (1024 * 1024)).toFixed(2);
+            const limitMB = (limitBytes / (1024 * 1024)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            const percent = Math.min(100, (totalSize / limitBytes) * 100);
+            
+            const usageText = document.getElementById('web-cloud-usage');
+            const usageBar = document.getElementById('web-cloud-bar');
+            if (usageText) usageText.textContent = `${usedMB} MB / ${limitMB} MB (${percent.toFixed(1)}%)`;
+            if (usageBar) usageBar.style.width = `${percent}%`;
+        }
+
+        // ─── Render Files UI ───
+        function renderWebCloudFiles(files) {
+            const listCont = document.getElementById('web-files-list');
+            if (!listCont) return;
+            
+            const filterText = document.getElementById('web-search-input').value.toLowerCase().trim();
+            const filteredFiles = files.filter(f => f.name.toLowerCase().includes(filterText));
+            
+            let totalSize = 0;
+            files.forEach(f => totalSize += f.size);
+            currentCloudUsageBytes = totalSize;
+            
+            const provider = localStorage.getItem('nova_storage_provider') || 'supabase';
+            const limitBytes = provider === 'gdrive' ? 16106127360 : 52428800; // 15GB vs 50MB
+            updateWebStorageUsage(totalSize, limitBytes);
+            
+            if (filteredFiles.length === 0) {
+                listCont.innerHTML = `
+                    <div class="flex flex-col items-center justify-center text-center p-6 text-gray-500 flex-1">
+                        <i data-lucide="cloud-off" class="w-8 h-8 mb-2"></i>
+                        <p class="text-xs font-bold">${filterText ? 'No matching files' : 'No files in Cloud'}</p>
+                        <p class="text-[10px] mt-0.5">${filterText ? 'Try another search query' : 'Upload PDF documents to access them securely'}</p>
+                    </div>
+                `;
+                listCont.classList.add('justify-center');
+                if (window.lucide) lucide.createIcons();
+                return;
+            }
+            
+            listCont.classList.remove('justify-center');
+            listCont.innerHTML = '';
+            
+            filteredFiles.forEach(f => {
+                const sizeMB = (f.size / (1024 * 1024)).toFixed(2);
+                const item = document.createElement('div');
+                item.className = 'recent-file-item flex items-center justify-between p-3 rounded-2xl border border-white/5 bg-white/5 hover:bg-nova-accent/5 hover:border-nova-accent/20 transition-all duration-200 cursor-pointer';
+                item.innerHTML = `
+                    <div class="flex items-center gap-3 overflow-hidden flex-1 text-left">
+                        <i data-lucide="file-text" class="w-5 h-5 text-nova-accent shrink-0"></i>
+                        <div class="flex flex-col overflow-hidden leading-tight">
+                            <span class="text-xs text-white font-bold truncate max-w-[200px]" title="${f.name}">${f.name}</span>
+                            <span class="text-[9px] text-gray-500 font-semibold mt-0.5 font-mono">${sizeMB} MB</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 sm:gap-2 ml-3 shrink-0">
+                        <button class="btn-open-file p-2 hover:bg-white/10 rounded-xl transition-all text-nova-accent animate-pulse-slow" title="Open PDF">
+                            <i data-lucide="eye" class="w-4 h-4"></i>
+                        </button>
+                        <button class="btn-download-file p-2 hover:bg-white/10 rounded-xl transition-all text-blue-400" title="Download PDF">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                        </button>
+                        <button class="btn-delete-file p-2 hover:bg-red-500/20 rounded-xl transition-all text-red-500" title="Delete from Cloud">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                
+                const openBtn = item.querySelector('.btn-open-file');
+                const downloadBtn = item.querySelector('.btn-download-file');
+                const deleteBtn = item.querySelector('.btn-delete-file');
+                
+                item.onclick = () => openWebCloudFile(f);
+                openBtn.onclick = (e) => { e.stopPropagation(); openWebCloudFile(f); };
+                downloadBtn.onclick = (e) => { e.stopPropagation(); downloadWebCloudFile(f); };
+                deleteBtn.onclick = (e) => { e.stopPropagation(); deleteWebCloudFile(f); };
+                
+                listCont.appendChild(item);
+            });
+            
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // ─── File Operations ───
+        const webFileInput = document.getElementById('web-cloud-file-input');
+        document.getElementById('web-btn-upload').onclick = () => webFileInput.click();
+        document.getElementById('web-btn-refresh').onclick = () => loadWebCloudFiles();
+
+        webFileInput.onchange = async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            if (file.type !== 'application/pdf') {
+                showToast("Invalid File", "Only PDF documents are supported.", "error");
+                e.target.value = '';
+                return;
+            }
+            
+            const provider = localStorage.getItem('nova_storage_provider') || 'supabase';
+            const limitBytes = provider === 'gdrive' ? 16106127360 : 52428800;
+            
+            if (currentCloudUsageBytes + file.size > limitBytes) {
+                showToast("Storage Full", "This upload exceeds your cloud storage limit.", "error");
+                e.target.value = '';
+                return;
+            }
+            
+            showToast("Uploading...", `Sending "${file.name}" to Cloud.`, "info");
+            
+            try {
+                if (provider === 'gdrive') {
+                    const token = await getWebGDriveAccessToken();
+                    if (!token) throw new Error("Google account connection expired.");
+                    const folderId = await webGDriveGetFolderId(token);
+                    
+                    const boundary = 'web_gdrive_upload_boundary';
+                    const delimiter = `\r\n--${boundary}\r\n`;
+                    const close_delim = `\r\n--${boundary}--`;
+                    
+                    const metadata = {
+                        name: file.name,
+                        parents: [folderId]
+                    };
+                    
+                    const metadataPart = delimiter +
+                        'Content-Type: application/json; charset=UTF-8\r\n\r\n' +
+                        JSON.stringify(metadata) +
+                        delimiter +
+                        `Content-Type: application/pdf\r\n\r\n`;
+                    
+                    const reader = new FileReader();
+                    const uploadPromise = new Promise((resolve, reject) => {
+                        reader.readAsArrayBuffer(file);
+                        reader.onload = async () => {
+                            try {
+                                const body = new Blob([
+                                    metadataPart,
+                                    new Uint8Array(reader.result),
+                                    close_delim
+                                ], { type: `multipart/related; boundary=${boundary}` });
+                                
+                                const res = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Authorization': `Bearer ${token}`,
+                                        'Content-Type': `multipart/related; boundary=${boundary}`
+                                    },
+                                    body: body
+                                });
+                                
+                                if (!res.ok) throw new Error("Failed to save on Google Drive");
+                                resolve(await res.json());
+                            } catch (err) {
+                                reject(err);
+                            }
+                        };
+                        reader.onerror = () => reject(new Error("File read failed"));
+                    });
+                    
+                    await uploadPromise;
+                } else {
+                    const path = activeStorageBucket.startsWith('user-storage-') ? file.name : `user-files/${activeWebUser.id}/${file.name}`;
+                    const { error } = await supa.storage.from(activeStorageBucket).upload(path, file, { upsert: true });
+                    if (error) throw error;
+                }
+                
+                showToast("Success!", `"${file.name}" uploaded successfully.`, "success");
+                loadWebCloudFiles();
+            } catch (err) {
+                showToast("Upload Failed", err.message, "error");
+            } finally {
+                e.target.value = '';
+            }
+        };
+
+        async function openWebCloudFile(file) {
+            const provider = localStorage.getItem('nova_storage_provider') || 'supabase';
+            showToast("Opening...", `Fetching "${file.name}"`, "info");
+            try {
+                if (provider === 'gdrive') {
+                    const token = await getWebGDriveAccessToken();
+                    if (!token) throw new Error("Google account connection expired.");
+                    const res = await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}?alt=media`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (!res.ok) throw new Error("Failed to retrieve file content from Drive.");
+                    const blob = await res.blob();
+                    const url = URL.createObjectURL(blob);
+                    window.open(url, '_blank');
+                } else {
+                    const path = file.path;
+                    const { data, error } = await supa.storage.from(activeStorageBucket).createSignedUrl(path, 3600);
+                    if (error) throw error;
+                    window.open(data.signedUrl, '_blank');
+                }
+            } catch (err) {
+                showToast("Failed to Open", err.message, "error");
+            }
+        }
+
+        async function downloadWebCloudFile(file) {
+            const provider = localStorage.getItem('nova_storage_provider') || 'supabase';
+            showToast("Downloading...", `Retrieving "${file.name}"`, "info");
+            try {
+                let url = '';
+                if (provider === 'gdrive') {
+                    const token = await getWebGDriveAccessToken();
+                    if (!token) throw new Error("Google account connection expired.");
+                    const res = await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}?alt=media`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (!res.ok) throw new Error("Failed to download file content from Drive.");
+                    const blob = await res.blob();
+                    url = URL.createObjectURL(blob);
+                } else {
+                    const path = file.path;
+                    const { data, error } = await supa.storage.from(activeStorageBucket).createSignedUrl(path, 60);
+                    if (error) throw error;
+                    url = data.signedUrl;
+                }
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = file.name;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            } catch (err) {
+                showToast("Download Failed", err.message, "error");
+            }
+        }
+
+        async function deleteWebCloudFile(file) {
+            if (!confirm(`Are you sure you want to permanently delete "${file.name}" from your cloud?`)) return;
+            
+            const provider = localStorage.getItem('nova_storage_provider') || 'supabase';
+            showToast("Deleting...", `Removing "${file.name}"`, "info");
+            try {
+                if (provider === 'gdrive') {
+                    const token = await getWebGDriveAccessToken();
+                    if (!token) throw new Error("Google account connection expired.");
+                    const res = await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}`, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (!res.ok) throw new Error("Failed to delete from Google Drive.");
+                } else {
+                    const path = file.path;
+                    const { error } = await supa.storage.from(activeStorageBucket).remove([path]);
+                    if (error) throw error;
+                }
+                showToast("Deleted", `"${file.name}" has been deleted.`, "success");
+                loadWebCloudFiles();
+            } catch (err) {
+                showToast("Delete Failed", err.message, "error");
+            }
+        }
+
+        // On Page Load: Check initial portal auth state
+        setTimeout(() => {
+            // If URL fragment suggests a Google Auth redirect, switch tab and trigger auth check
+            if (window.location.hash.includes('access_token=') && window.location.hash.includes('state=gdrive_link')) {
+                switchTab('cloud');
+            } else {
+                // Check if session is already active in local storage to remain on correct tab
+                supa.auth.getSession().then(({ data: { session } }) => {
+                    if (session) {
+                        // User has session, let's keep them on download, or we can check session
+                    }
+                });
+            }
+        }, 100);
+
+        // ============================================================================================
         // ─────────────────────────── PARTICLES ───────────────────────────
         (function () {
             const canvas = document.getElementById('particles-canvas');
